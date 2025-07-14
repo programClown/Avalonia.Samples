@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <AvaloniaVersion>11.3.2</AvaloniaVersion>
+        <DataGridVersion>11.3.2</DataGridVersion>
+        <CommunityToolkitVersion>8.4.0</CommunityToolkitVersion>
+    </PropertyGroup>
+</Project>
