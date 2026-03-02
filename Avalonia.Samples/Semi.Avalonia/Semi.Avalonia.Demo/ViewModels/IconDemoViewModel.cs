@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Controls;
@@ -9,20 +10,21 @@ namespace Semi.Avalonia.Demo.ViewModels;
 
 public partial class IconDemoViewModel : ObservableObject
 {
-    private readonly IResourceDictionary? _resources = new Icons();
+    private readonly Icons _resources = new();
 
-    private readonly Dictionary<string, IconItem> _filledIcons = new();
+    private readonly Dictionary<string, IconItem> _fillIcons = new();
     private readonly Dictionary<string, IconItem> _strokedIcons = new();
+    private readonly Dictionary<string, IconItem> _aiIcons = new();
 
     [ObservableProperty] private string? _searchText;
 
-    public ObservableCollection<IconItem> FilteredFilledIcons { get; set; } = [];
+    public ObservableCollection<IconTab> IconTabs { get; } = [];
+    public ObservableCollection<IconItem> FilteredFillIcons { get; set; } = [];
     public ObservableCollection<IconItem> FilteredStrokedIcons { get; set; } = [];
+    public ObservableCollection<IconItem> FilteredAIIcons { get; set; } = [];
 
     public void InitializeResources()
     {
-        if (_resources is null) return;
-
         foreach (var provider in _resources.MergedDictionaries)
         {
             if (provider is not ResourceDictionary dic) continue;
@@ -30,38 +32,58 @@ public partial class IconDemoViewModel : ObservableObject
             foreach (var key in dic.Keys)
             {
                 if (dic[key] is not Geometry geometry) continue;
+                var resourceKey = key.ToString() ?? string.Empty;
                 var icon = new IconItem
                 {
-                    ResourceKey = key.ToString(),
+                    ResourceKey = resourceKey,
                     Geometry = geometry
                 };
 
-                if (key.ToString().EndsWith("Stroked"))
-                    _strokedIcons[key.ToString().ToLowerInvariant()] = icon;
+                if (resourceKey.StartsWith("SemiIconAI"))
+                    _aiIcons[resourceKey] = icon;
+                else if (resourceKey.EndsWith("Stroked", StringComparison.InvariantCultureIgnoreCase))
+                    _strokedIcons[resourceKey] = icon;
                 else
-                    _filledIcons[key.ToString().ToLowerInvariant()] = icon;
+                    _fillIcons[resourceKey] = icon;
             }
         }
 
         OnSearchTextChanged(string.Empty);
+
+        IconTabs.Clear();
+        IconTabs.Add(new IconTab("Fill Icons", FilteredFillIcons));
+        IconTabs.Add(new IconTab("Stroked Icons", FilteredStrokedIcons));
+        IconTabs.Add(new IconTab("AI Icons", FilteredAIIcons));
     }
 
     partial void OnSearchTextChanged(string? value)
     {
-        var search = value?.ToLowerInvariant() ?? string.Empty;
+        var search = string.IsNullOrWhiteSpace(value) ? string.Empty : value.Trim();
 
-        FilteredFilledIcons.Clear();
-        foreach (var pair in _filledIcons.Where(i => i.Key.Contains(search)))
+        FilteredFillIcons.Clear();
+        foreach (var pair in _fillIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
-            FilteredFilledIcons.Add(pair.Value);
+            FilteredFillIcons.Add(pair.Value);
         }
 
         FilteredStrokedIcons.Clear();
-        foreach (var pair in _strokedIcons.Where(i => i.Key.Contains(search)))
+        foreach (var pair in _strokedIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
         {
             FilteredStrokedIcons.Add(pair.Value);
         }
+
+        FilteredAIIcons.Clear();
+        foreach (var pair in _aiIcons.Where(kv => kv.Key.Contains(search, StringComparison.InvariantCultureIgnoreCase)))
+        {
+            FilteredAIIcons.Add(pair.Value);
+        }
     }
+}
+
+public class IconTab(string header, ObservableCollection<IconItem> iconItems)
+{
+    public string Header { get; set; } = header;
+    public ObservableCollection<IconItem> IconItems { get; set; } = iconItems;
 }
 
 public class IconItem

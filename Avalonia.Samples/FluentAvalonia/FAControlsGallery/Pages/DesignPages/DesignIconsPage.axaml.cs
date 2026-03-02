@@ -4,8 +4,6 @@ using Avalonia.Input;
 using Avalonia.VisualTree;
 using FAControlsGallery.ViewModels.DesignPages;
 using FluentAvalonia.UI.Controls;
-using ItemsRepeaterElementClearingEventArgs = FluentAvalonia.UI.Controls.ItemsRepeaterElementClearingEventArgs;
-using ItemsRepeaterElementPreparedEventArgs = FluentAvalonia.UI.Controls.ItemsRepeaterElementPreparedEventArgs;
 
 namespace FAControlsGallery.Pages.DesignPages;
 

@@ -16,24 +16,25 @@ public class MenuViewModel : ViewModelBase
                 MenuHeader = "Buttons & Inputs", Children = new ObservableCollection<MenuItemViewModel>
                 {
                     new() { MenuHeader = "Button Group", Key = MenuKeys.MenuKeyButtonGroup },
-                    new() { MenuHeader = "Icon Button", Key = MenuKeys.MenuKeyIconButton, Status = "Redesigned" },
+                    new() { MenuHeader = "Icon Button", Key = MenuKeys.MenuKeyIconButton, Status = "Updated" },
                     new() { MenuHeader = "AutoCompleteBox", Key = MenuKeys.MenuKeyAutoCompleteBox },
                     new() { MenuHeader = "Class Input", Key = MenuKeys.MenuKeyClassInput },
                     new() { MenuHeader = "Enum Selector", Key = MenuKeys.MenuKeyEnumSelector },
                     new() { MenuHeader = "Form", Key = MenuKeys.MenuKeyForm },
                     new() { MenuHeader = "KeyGestureInput", Key = MenuKeys.MenuKeyKeyGestureInput },
                     new() { MenuHeader = "IPv4Box", Key = MenuKeys.MenuKeyIpBox },
-                    new() { MenuHeader = "MultiComboBox", Key = MenuKeys.MenuKeyMultiComboBox },
+                    new() { MenuHeader = "MultiComboBox", Key = MenuKeys.MenuKeyMultiComboBox, Status = "Updated" },
+                    new() { MenuHeader = "Multi AutoCompleteBox", Key = MenuKeys.MenuKeyMultiAutoCompleteBox },
                     new() { MenuHeader = "Numeric UpDown", Key = MenuKeys.MenuKeyNumericUpDown },
                     new() { MenuHeader = "NumPad", Key = MenuKeys.MenuKeyNumPad },
-                    new() { MenuHeader = "PathPicker", Key = MenuKeys.MenuKeyPathPicker, Status = "New" },
+                    new() { MenuHeader = "PathPicker", Key = MenuKeys.MenuKeyPathPicker, Status = "Updated" },
                     new() { MenuHeader = "PinCode", Key = MenuKeys.MenuKeyPinCode },
                     new() { MenuHeader = "RangeSlider", Key = MenuKeys.MenuKeyRangeSlider },
                     new() { MenuHeader = "Rating", Key = MenuKeys.MenuKeyRating },
                     new() { MenuHeader = "Selection List", Key = MenuKeys.MenuKeySelectionList },
                     new() { MenuHeader = "TagInput", Key = MenuKeys.MenuKeyTagInput },
                     new() { MenuHeader = "Theme Toggler", Key = MenuKeys.MenuKeyThemeToggler },
-                    new() { MenuHeader = "TreeComboBox", Key = MenuKeys.MenuKeyTreeComboBox },
+                    new() { MenuHeader = "TreeComboBox", Key = MenuKeys.MenuKeyTreeComboBox, Status = "Updated" },
                 }
             },
             new()
@@ -41,8 +42,8 @@ public class MenuViewModel : ViewModelBase
                 MenuHeader = "Dialog & Feedbacks", Children = new ObservableCollection<MenuItemViewModel>()
                 {
                     new() { MenuHeader = "Dialog", Key = MenuKeys.MenuKeyDialog },
-                    new() { MenuHeader = "Drawer", Key = MenuKeys.MenuKeyDrawer, Status = "Updated" },
-                    new() { MenuHeader = "Loading", Key = MenuKeys.MenuKeyLoading, Status = "Updated" },
+                    new() { MenuHeader = "Drawer", Key = MenuKeys.MenuKeyDrawer },
+                    new() { MenuHeader = "Loading", Key = MenuKeys.MenuKeyLoading },
                     new() { MenuHeader = "Message Box", Key = MenuKeys.MenuKeyMessageBox },
                     new() { MenuHeader = "Notification", Key = MenuKeys.MenuKeyNotification },
                     new() { MenuHeader = "PopConfirm", Key = MenuKeys.MenuKeyPopConfirm },
@@ -54,12 +55,12 @@ public class MenuViewModel : ViewModelBase
             {
                 MenuHeader = "Date & Time", Children = new ObservableCollection<MenuItemViewModel>
                 {
-                    new() { MenuHeader = "Date Picker", Key = MenuKeys.MenuKeyDatePicker, Status = "Updated" },
-                    new() { MenuHeader = "Date Range Picker", Key = MenuKeys.MenuKeyDateRangePicker, Status = "Updated" },
-                    new() { MenuHeader = "Date Time Picker", Key = MenuKeys.MenuKeyDateTimePicker, Status = "Updated" },
+                    new() { MenuHeader = "Date Picker", Key = MenuKeys.MenuKeyDatePicker },
+                    new() { MenuHeader = "Date Range Picker", Key = MenuKeys.MenuKeyDateRangePicker },
+                    new() { MenuHeader = "Date Time Picker", Key = MenuKeys.MenuKeyDateTimePicker },
                     new() { MenuHeader = "Time Box", Key = MenuKeys.MenuKeyTimeBox },
-                    new() { MenuHeader = "Time Picker", Key = MenuKeys.MenuKeyTimePicker, Status = "Updated" },
-                    new() { MenuHeader = "Time Range Picker", Key = MenuKeys.MenuKeyTimeRangePicker, Status = "Updated" },
+                    new() { MenuHeader = "Time Picker", Key = MenuKeys.MenuKeyTimePicker },
+                    new() { MenuHeader = "Time Range Picker", Key = MenuKeys.MenuKeyTimeRangePicker },
                     new() { MenuHeader = "Clock", Key = MenuKeys.MenuKeyClock }
                 }
             },
@@ -67,8 +68,8 @@ public class MenuViewModel : ViewModelBase
             {
                 MenuHeader = "Navigation & Menus", Children = new ObservableCollection<MenuItemViewModel>
                 {
-                    new() { MenuHeader = "Anchor", Key = MenuKeys.MenuKeyAnchor, Status = "New" },
-                    new() { MenuHeader = "Breadcrumb", Key = MenuKeys.MenuKeyBreadcrumb, Status = "Updated" },
+                    new() { MenuHeader = "Anchor", Key = MenuKeys.MenuKeyAnchor },
+                    new() { MenuHeader = "Breadcrumb", Key = MenuKeys.MenuKeyBreadcrumb },
                     new() { MenuHeader = "Nav Menu", Key = MenuKeys.MenuKeyNavMenu, Status = "Updated" },
                     new() { MenuHeader = "Pagination", Key = MenuKeys.MenuKeyPagination },
                     new() { MenuHeader = "ToolBar", Key = MenuKeys.MenuKeyToolBar },
@@ -82,14 +83,16 @@ public class MenuViewModel : ViewModelBase
                     new() { MenuHeader = "AspectRatioLayout", Key = MenuKeys.MenuKeyAspectRatioLayout },
                     new() { MenuHeader = "Avatar", Key = MenuKeys.MenuKeyAvatar, Status = "WIP" },
                     new() { MenuHeader = "Badge", Key = MenuKeys.MenuKeyBadge },
-                    new() { MenuHeader = "Banner", Key = MenuKeys.MenuKeyBanner, Status = "Updated" },
+                    new() { MenuHeader = "Banner", Key = MenuKeys.MenuKeyBanner },
+                    new() { MenuHeader = "Descriptions", Key = MenuKeys.MenuKeyDescriptions, Status = "New" },
                     new() { MenuHeader = "Disable Container", Key = MenuKeys.MenuKeyDisableContainer },
                     new() { MenuHeader = "Divider", Key = MenuKeys.MenuKeyDivider },
                     new() { MenuHeader = "DualBadge", Key = MenuKeys.MenuKeyDualBadge },
                     new() { MenuHeader = "ImageViewer", Key = MenuKeys.MenuKeyImageViewer },
                     new() { MenuHeader = "ElasticWrapPanel", Key = MenuKeys.MenuKeyElasticWrapPanel },
-                    new() { MenuHeader = "Marquee", Key = MenuKeys.MenuKeyMarquee, Status = "New" },
-                    new() { MenuHeader = "Number Displayer", Key = MenuKeys.MenuKeyNumberDisplayer },
+                    new() { MenuHeader = "Marquee", Key = MenuKeys.MenuKeyMarquee },
+                    new() { MenuHeader = "Number Displayer", Key = MenuKeys.MenuKeyNumberDisplayer, Status = "Updated" },
+                    new() { MenuHeader = "Qr Code", Key = MenuKeys.MenuKeyQrCode, Status = "New" },
                     new() { MenuHeader = "Scroll To", Key = MenuKeys.MenuKeyScrollToButton },
                     new() { MenuHeader = "Timeline", Key = MenuKeys.MenuKeyTimeline },
                     new() { MenuHeader = "TwoTonePathIcon", Key = MenuKeys.MenuKeyTwoTonePathIcon }
@@ -116,6 +119,7 @@ public static class MenuKeys
     public const string MenuKeyDatePicker = "DatePicker";
     public const string MenuKeyDateRangePicker = "DateRangePicker";
     public const string MenuKeyDateTimePicker = "DateTimePicker";
+    public const string MenuKeyDescriptions = "Descriptions";
     public const string MenuKeyDialog = "Dialog";
     public const string MenuKeyDisableContainer = "DisableContainer";
     public const string MenuKeyDivider = "Divider";
@@ -140,6 +144,7 @@ public static class MenuKeys
     public const string MenuKeyPagination = "Pagination";
     public const string MenuKeyPinCode = "PinCode";
     public const string MenuKeyPopConfirm = "PopConfirm";
+    public const string MenuKeyQrCode = "QrCode";
     public const string MenuKeyRangeSlider = "RangeSlider";
     public const string MenuKeyRating = "Rating";
     public const string MenuKeyScrollToButton = "ScrollToButton";
@@ -158,4 +163,5 @@ public static class MenuKeys
     public const string MenuKeyAspectRatioLayout = "AspectRatioLayout";
     public const string MenuKeyPathPicker = "PathPicker";
     public const string MenuKeyAnchor = "Anchor";
+    public const string MenuKeyMultiAutoCompleteBox = "MultiAutoCompleteBox";
 }

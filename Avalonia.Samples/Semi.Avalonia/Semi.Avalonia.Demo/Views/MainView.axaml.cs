@@ -9,6 +9,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace Semi.Avalonia.Demo.Views;
 
@@ -18,6 +19,19 @@ public partial class MainView : UserControl
     {
         InitializeComponent();
         this.DataContext = new MainViewModel();
+        WeakReferenceMessenger.Default.Register<string, string>(this, "JumpTo", MessageHandler);
+    }
+
+    private void MessageHandler(object _, string message)
+    {
+        foreach (var item in tab.ItemsView)
+        {
+            if (item is TabItem tabItem && tabItem.Header is not null && tabItem.Header.Equals(message))
+            {
+                tab.SelectedItem = tabItem;
+                break;
+            }
+        }
     }
 }
 
@@ -76,61 +90,97 @@ public partial class MainViewModel : ObservableObject
                     {
                         Header = "简体中文",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("zh-cn")
+                        CommandParameter = new CultureInfo("zh-CN")
                     },
                     new MenuItemViewModel
                     {
                         Header = "English",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("en-us")
+                        CommandParameter = new CultureInfo("en-US")
                     },
                     new MenuItemViewModel
                     {
                         Header = "日本語",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("ja-jp")
+                        CommandParameter = new CultureInfo("ja-JP")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "한국어",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("ko-KR")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "English (UK)",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("en-GB")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Italiano",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("it-IT")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Italiano (Switzerland)",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("it-CH")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Nederlands",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("nl-NL")
+                    },
+                    new MenuItemViewModel
+                    {
+                        Header = "Nederlands (Belgium)",
+                        Command = SelectLocaleCommand,
+                        CommandParameter = new CultureInfo("nl-BE")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Українська",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("uk-ua")
+                        CommandParameter = new CultureInfo("uk-UA")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Русский",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("ru-ru")
+                        CommandParameter = new CultureInfo("ru-RU")
                     },
                     new MenuItemViewModel
                     {
                         Header = "繁體中文",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("zh-tw")
+                        CommandParameter = new CultureInfo("zh-TW")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Deutsch",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("de-de")
+                        CommandParameter = new CultureInfo("de-DE")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Español",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("es-es")
+                        CommandParameter = new CultureInfo("es-ES")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Polski",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("pl-pl")
+                        CommandParameter = new CultureInfo("pl-PL")
                     },
                     new MenuItemViewModel
                     {
                         Header = "Français",
                         Command = SelectLocaleCommand,
-                        CommandParameter = new CultureInfo("fr-fr")
+                        CommandParameter = new CultureInfo("fr-FR")
                     },
                 ]
             }

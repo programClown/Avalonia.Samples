@@ -16,17 +16,12 @@ public partial class MainViewViewModel : ViewModelBase
     public WindowNotificationManager? NotificationManager { get; set; }
     public MenuViewModel Menus { get; set; } = new MenuViewModel();
 
-    private object? _content;
-
-    public object? Content
-    {
-        get => _content;
-        set => SetProperty(ref _content, value);
-    }
+    [ObservableProperty] private object? _content;
 
     public MainViewViewModel()
     {
-        WeakReferenceMessenger.Default.Register<MainViewViewModel, string>(this, OnNavigation);
+        WeakReferenceMessenger.Default.Register<MainViewViewModel, string, string>(this, "JumpTo", OnNavigation);
+        OnNavigation(this, MenuKeys.MenuKeyIntroduction);
     }
 
 
@@ -47,6 +42,7 @@ public partial class MainViewViewModel : ViewModelBase
             MenuKeys.MenuKeyDatePicker => new DatePickerDemoViewModel(),
             MenuKeys.MenuKeyDateRangePicker => new DateRangePickerDemoViewModel(),
             MenuKeys.MenuKeyDateTimePicker => new DateTimePickerDemoViewModel(),
+            MenuKeys.MenuKeyDescriptions => new DescriptionsDemoViewModel(),
             MenuKeys.MenuKeyDialog => new DialogDemoViewModel(),
             MenuKeys.MenuKeyDisableContainer => new DisableContainerDemoViewModel(),
             MenuKeys.MenuKeyDivider => new DividerDemoViewModel(),
@@ -71,6 +67,7 @@ public partial class MainViewViewModel : ViewModelBase
             MenuKeys.MenuKeyPagination => new PaginationDemoViewModel(),
             MenuKeys.MenuKeyPinCode => new PinCodeDemoViewModel(),
             MenuKeys.MenuKeyPopConfirm => new PopConfirmDemoViewModel(),
+            MenuKeys.MenuKeyQrCode => new QrCodeDemoViewModel(),
             MenuKeys.MenuKeyRangeSlider => new RangeSliderDemoViewModel(),
             MenuKeys.MenuKeyRating => new RatingDemoViewModel(),
             MenuKeys.MenuKeyScrollToButton => new ScrollToButtonDemoViewModel(),
@@ -89,6 +86,7 @@ public partial class MainViewViewModel : ViewModelBase
             MenuKeys.MenuKeyAspectRatioLayout => new AspectRatioLayoutDemoViewModel(),
             MenuKeys.MenuKeyPathPicker => new PathPickerDemoViewModel(),
             MenuKeys.MenuKeyAnchor => new AnchorDemoViewModel(),
+            MenuKeys.MenuKeyMultiAutoCompleteBox => new MultiAutoCompleteBoxDemoViewModel(),
             _ => throw new ArgumentOutOfRangeException(nameof(s), s, null)
         };
     }

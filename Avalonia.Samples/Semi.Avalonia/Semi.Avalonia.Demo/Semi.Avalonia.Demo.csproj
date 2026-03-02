@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,11 +20,11 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="$(CommunityToolkitVersion)"/>
-        <PackageReference Include="Irihi.Avalonia.Shared" Version="0.3.0" />
-        <PackageReference Include="Semi.Avalonia" Version="11.2.1.9" />
-        <PackageReference Include="Semi.Avalonia.ColorPicker" Version="11.2.1.9" />
-        <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.2.1.9" />
-        <PackageReference Include="Semi.Avalonia.TreeDataGrid" Version="11.0.10.4" />
+        <PackageReference Include="Irihi.Avalonia.Shared" Version="0.3.1" />
+        <PackageReference Include="Semi.Avalonia" Version="11.3.7.3" />
+        <PackageReference Include="Semi.Avalonia.ColorPicker" Version="11.3.7.3" />
+        <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.3.7.3" />
+        <PackageReference Include="Semi.Avalonia.TreeDataGrid" Version="11.1.1.1" />
     </ItemGroup>
 
     

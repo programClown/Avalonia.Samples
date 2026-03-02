@@ -8,7 +8,6 @@
     xmlns:views="clr-namespace:Semi.Avalonia.Demo.Views"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    x:CompileBindings="True"
     x:DataType="views:MainViewModel"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -162,14 +161,8 @@
             <TabItem Header="Button">
                 <pages:ButtonDemo />
             </TabItem>
-            <TabItem Header="RepeatButton">
-                <pages:RepeatButtonDemo />
-            </TabItem>
             <TabItem Header="HyperlinkButton">
                 <pages:HyperlinkButtonDemo />
-            </TabItem>
-            <TabItem Header="ToggleButton">
-                <pages:ToggleButtonDemo />
             </TabItem>
             <TabItem Header="CheckBox">
                 <pages:CheckBoxDemo />
