@@ -11,7 +11,7 @@
         <semi:SemiPopupAnimations />
         <semi:ColorPickerSemiTheme />
         <semi:DataGridSemiTheme />
-        <semi:TreeDataGridSemiTheme />
+        <!-- <semi:TreeDataGridSemiTheme /> -->
     </Application.Styles>
     <Application.Resources>
         <ResourceDictionary>
@@ -28,6 +28,15 @@
                 CommandParameter="{Binding $self.Header}" />
         </NativeMenu>
     </NativeMenu.Menu>
+    <NativeDock.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="New Window" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem Header="Show Main Window" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem Header="Add Dock Menu Item" />
+        </NativeMenu>
+    </NativeDock.Menu>
     <TrayIcon.Icons>
         <TrayIcons>
             <TrayIcon

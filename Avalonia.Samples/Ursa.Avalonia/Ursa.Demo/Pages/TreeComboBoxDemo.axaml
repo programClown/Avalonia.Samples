@@ -10,8 +10,10 @@
     d:DesignWidth="800"
     x:CompileBindings="True"
     x:DataType="vm:TreeComboBoxDemoViewModel"
-    mc:Ignorable="d">
-    <StackPanel>
+    mc:Ignorable="d"
+    xmlns:controls="clr-namespace:Ursa.Demo.Controls">
+    <StackPanel Margin="20" Spacing="20">
+        <controls:PageMetadataView DataContext="{Binding PageMetadata}"/>
         <u:TreeComboBox Width="300" HorizontalAlignment="Left">
             <u:TreeComboBoxItem Header="Hello">
                 <u:TreeComboBoxItem Header="Hello World">
@@ -30,7 +32,7 @@
         </u:TreeComboBox>
         <u:TreeComboBox
             Width="300"
-            Watermark="Please select an item. "
+            PlaceholderText="Please select an item. "
             HorizontalAlignment="Left"
             SelectedItem="{Binding SelectedItem}"
             ItemsSource="{Binding Items}">
@@ -44,7 +46,7 @@
         <u:TreeComboBox
             Classes="clearButton"
             Width="300"
-            Watermark="Please select an item. "
+            PlaceholderText="Please select an item. "
             HorizontalAlignment="Left"
             SelectedItem="{Binding SelectedItem}"
             InnerRightContent="Right"

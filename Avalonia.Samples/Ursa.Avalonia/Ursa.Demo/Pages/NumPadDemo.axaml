@@ -7,20 +7,24 @@
     xmlns:u="https://irihi.tech/ursa"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    mc:Ignorable="d">
-    <StackPanel HorizontalAlignment="Left">
+    mc:Ignorable="d"
+    x:DataType="viewModels:NumPadDemoViewModel"
+    xmlns:controls="clr-namespace:Ursa.Demo.Controls"
+    xmlns:viewModels="clr-namespace:Ursa.Demo.ViewModels">
+    <StackPanel HorizontalAlignment="Stretch" Margin="20" Spacing="20">
+        <controls:PageMetadataView DataContext="{Binding PageMetadata}"/>
         <TextBox
             HorizontalAlignment="Stretch"
             u:NumPad.Attach="True"
-            Watermark="Invoke NumPad" />
+            PlaceholderText="Invoke NumPad" />
         <TextBox
             HorizontalAlignment="Stretch"
             u:NumPad.Attach="True"
-            Watermark="Invoke NumPad" />
+            PlaceholderText="Invoke NumPad" />
         <TextBox
             HorizontalAlignment="Stretch"
             u:NumPad.Attach="True"
-            Watermark="Invoke NumPad" />
+            PlaceholderText="Invoke NumPad" />
         <u:IPv4Box
             Width="200"
             u:NumPad.Attach="True"
@@ -29,12 +33,12 @@
         <u:NumericIntUpDown
             HorizontalAlignment="Stretch"
             u:NumPad.Attach="True"
-            Watermark="Invoke u:NumericIntUpDown" />
+            PlaceholderText="Invoke u:NumericIntUpDown" />
 
         <NumericUpDown
             u:NumPad.Attach="True"
             ButtonSpinnerLocation="Left"
-            Watermark="NumericUpDown" />
+            PlaceholderText="NumericUpDown" />
 
         <Border Theme="{DynamicResource CardBorder}">
             <StackPanel>
